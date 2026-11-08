@@ -229,7 +229,7 @@ function welcomeProfileSwitch(){return `<div class="ige-profile-switch welcome-p
 function welcome(){let duan=state.homeProfile==='duan';return `<section class="welcome-art"><img src="${duan?'assets/página inicial Mkhrttr.png':'assets/existing-welcome.webp'}" alt="${duan?'Bem-vindo à Assembleia, Mkhrttr! Vossa Alteza, já lhe disseram hoje o quão incrível você é? Sua presença eleva a Assembleia. Nós te amamos!':'Bem-vinda à Assembleia, bolsista! Prezada bolsista, estou aqui para te guiar.'}">${state.welcomeAssemblySeen?'<span class="welcome-read-dot" aria-hidden="true"></span>':''}${welcomeHot('Entrar na Assembleia'+(state.welcomeAssemblySeen?'':' · novidade'),32,33,35,15,'enterAssembly()')}${duan?'':welcomeHot('Curiosidades para bolsistas',17,66,66,7,'openCuriosities()')}${welcomeNavigation()}${welcomeProfileSwitch()}</section>`}
 
 const curiosityCards=[
- {art:'♧',title:'Ler o post “5 razões mortais” pode LITERALMENTE salvar vidas! ;)',note:'',type:'book'},
+ {art:'♧',title:'Ler o post “5 regras mortais” pode LITERALMENTE salvar vidas! ;)',note:'',type:'book'},
  {art:'♕',title:'Seja social, bolsista! Queremos saber sobre você :)',note:'Obs: caso fique sem postar pelo menos 3 fotos por semana, o sistema automaticamente postará para você 3 imagens aleatórias suas das câmeras da cidade… e você vai ver, estamos <u>sempre de olho</u> @.@.',type:'crown'},
  {art:'☾ ☾ ☾ ◉ ☽ ☽ ☽',title:'Sim, as curiosidades são aleatórias… ou nem tanto ;)',note:'É isso mesmo, bolsista,<br>sabemos o que você está pensando,<br>sabemos <u>TUDO</u> sobre você.',type:'moons'}
 ];
