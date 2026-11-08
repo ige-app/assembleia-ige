@@ -342,8 +342,8 @@
 .radio-main-toggle>span::before{content:none!important}
 .radio-main-toggle>span svg{display:block;width:100%;height:100%;fill:#fff5db}
 
-:root{--site-page-width:505px;--site-header-height:123.23px}
-.layout{padding-top:var(--site-header-height)!important}
+:root{--site-page-width:505px;--site-header-height:123.23px;--site-header-overlap:calc(var(--site-page-width) * .045);--site-content-top:calc(var(--site-header-height) - var(--site-header-overlap))}
+.layout{padding-top:var(--site-content-top)!important}
 .site-fixed-header{position:fixed;z-index:30;top:0;left:50%;transform:translateX(-50%);width:var(--site-page-width);aspect-ratio:3/1;line-height:0;isolation:isolate}
 .site-fixed-header>img{display:block;width:100%;height:auto}
 .site-header-hit{position:absolute;z-index:3;background:transparent;border:0;padding:0;cursor:pointer;touch-action:manipulation}
@@ -355,9 +355,9 @@
 .site-header-crop-window{position:relative;width:100%;overflow:hidden;line-height:0;flex:none}
 .site-header-crop-window>section,.site-header-crop-window>.welcome-art,.site-header-crop-window>.ige-image-scene{position:relative;margin:0}
 #app>.status,#app>.top,.ige-scene-heading{display:none!important}
-.layout .phone.visual-profile:not(.mia-image-profile){height:min(940px,calc(100dvh - var(--site-header-height)))!important;min-height:0!important;max-height:calc(100dvh - var(--site-header-height))!important}
-.layout .phone.visual-profile.mia-image-profile{height:auto!important;min-height:0!important;max-height:min(940px,calc(100dvh - var(--site-header-height)))!important}
-.layout>.phone:not([class*="visual-"]){height:min(940px,calc(100dvh - var(--site-header-height)));min-height:0}
+.layout .phone.visual-profile:not(.mia-image-profile){height:min(940px,calc(100dvh - var(--site-content-top)))!important;min-height:0!important;max-height:calc(100dvh - var(--site-content-top))!important}
+.layout .phone.visual-profile.mia-image-profile{height:auto!important;min-height:0!important;max-height:min(940px,calc(100dvh - var(--site-content-top)))!important}
+.layout>.phone:not([class*="visual-"]){height:min(940px,calc(100dvh - var(--site-content-top)));min-height:0}
 .ige-profile-switch,.profile-switch{position:fixed!important;top:calc(var(--site-header-height) + 8px)!important;right:max(12px,calc((100vw - var(--site-page-width))/2 + 12px))!important;z-index:26}
 .influencers-back{position:fixed!important;top:calc(var(--site-header-height) + 8px)!important;left:max(12px,calc((100vw - var(--site-page-width))/2 + 12px))!important;z-index:26}
 
