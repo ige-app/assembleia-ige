@@ -1,3 +1,4 @@
+function magazineNarrationAvailable(){return magazineSelectedEdition().id==='verao-especial-02'}
 // One audio instance survives magazine page changes and DOM re-renders.
 const magazineNarrationTrack={src:'assets/m-on-the-cover-completo.mp3',duration:253};
 const magazineNarrationAudio=new Audio();
@@ -7,7 +8,7 @@ let magazineNarrationOpen=false,magazineNarrationTeaser=false,magazineNarrationE
 let magazineNarrationLoading=false,magazineNarrationError='';
 
 function magazineNarrationPlayer(){
-  const available=magazineSelectedEdition().available,playing=!magazineNarrationAudio.paused;
+  const available=magazineNarrationAvailable(),playing=!magazineNarrationAudio.paused;
   return `<div class="magazine-narration-integrated" role="group" aria-label="Áudio de pós-edição da revista"><button class="magazine-narration-toggle" aria-label="${playing?'Pausar':'Ouvir'} comentários da revista" ${available&&!magazineNarrationTeaser?'':'disabled'} onclick="magazineNarrationToggle()"><span id="magazine-narration-glyph" aria-hidden="true">${radioPlaybackIcon(playing)}</span></button><time id="magazine-narration-current">${radioTime(magazineNarrationAudio.currentTime)}</time><time id="magazine-narration-duration">${available?radioTime(magazineNarrationTrack.duration):'--:--'}</time></div>`;
 }
 
@@ -30,7 +31,7 @@ function refreshMagazineNarrationPanel(){
 }
 
 function magazineNarrationToggle(){
-  if(!magazineSelectedEdition().available)return;
+  if(!magazineNarrationAvailable())return;
   if(!magazineNarrationOpen){
     magazineNarrationOpen=true;
     if(!safeStore.getItem(magazineNarrationTeaserKey)){
@@ -93,10 +94,10 @@ function updateMagazineNarration(){
   if(state.page!=='revista')return;
   const audio=magazineNarrationAudio,duration=Number.isFinite(audio.duration)?audio.duration:magazineNarrationTrack.duration;
   for(const element of document.querySelectorAll('#magazine-narration-current,[data-magazine-current]'))element.textContent=radioTime(audio.currentTime);
-  for(const element of document.querySelectorAll('#magazine-narration-duration,[data-magazine-duration]'))element.textContent=magazineSelectedEdition().available?radioTime(Math.ceil(duration)):'--:--';
+  for(const element of document.querySelectorAll('#magazine-narration-duration,[data-magazine-duration]'))element.textContent=magazineNarrationAvailable()?radioTime(Math.ceil(duration)):'--:--';
   const glyph=document.getElementById('magazine-narration-glyph'),integrated=document.querySelector('.magazine-narration-toggle'),play=document.querySelector('.magazine-audio-play');
   if(glyph)glyph.innerHTML=radioPlaybackIcon(!audio.paused);
-  if(integrated){integrated.disabled=!magazineSelectedEdition().available||magazineNarrationTeaser;integrated.setAttribute('aria-label',(audio.paused?'Ouvir':'Pausar')+' comentários da revista')}
+  if(integrated){integrated.disabled=!magazineNarrationAvailable()||magazineNarrationTeaser;integrated.setAttribute('aria-label',(audio.paused?'Ouvir':'Pausar')+' comentários da revista')}
   if(play){play.innerHTML=radioPlaybackIcon(!audio.paused);play.setAttribute('aria-label',(audio.paused?'Reproduzir':'Pausar')+' pós-edição')}
   for(const control of document.querySelectorAll('[data-magazine-seek]'))control.disabled=!audio.readyState;
   const progress=document.querySelector('.magazine-audio-progress input');
