@@ -1,9 +1,9 @@
-.magazine-audio-panel{margin:12px 12px 18px;padding:14px 16px;border:1px solid #c5a36d;border-radius:12px;background:linear-gradient(135deg,#fffcf5,#f2e5d5);color:#543820;box-shadow:0 3px 14px #68451d14;line-height:1.45}
+.magazine-audio-panel{margin:12px 12px 18px;padding:12px 14px;border:1px solid #c5a36d;border-radius:12px;background:linear-gradient(135deg,#fffcf5,#f2e5d5);color:#543820;box-shadow:0 3px 14px #68451d14;line-height:1.45}
 .magazine-audio-panel[hidden],.magazine-audio-extra[hidden]{display:none}
 .magazine-audio-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;font:9px/1.5 Arial,sans-serif;letter-spacing:.13em;color:#896334}
 .magazine-audio-close{flex:none;width:36px;height:36px;border:0;background:transparent;color:#765127;font-size:25px;border-radius:50%;margin:-8px -8px -4px 0}
 .magazine-audio-panel h3{margin:5px 0;font-size:18px;font-weight:normal;font-style:italic}
-.magazine-audio-byline{margin:0 0 12px;font-size:12px;color:#7f6448}
+.magazine-audio-byline{margin:0 0 8px;font-size:12px;color:#7f6448}
 .magazine-audio-teaser p{margin:8px 0 15px;font-size:14px}
 .magazine-audio-teaser strong{white-space:nowrap}
 .magazine-audio-coming{padding:8px 15px;border:1px solid #cdb890;border-radius:20px;background:#e9ddc9;color:#88704f;font-size:12px}
@@ -17,12 +17,14 @@
 .magazine-audio-controls .magazine-audio-more{border:0;background:transparent;letter-spacing:1px;font-size:26px}
 .magazine-audio-progress{display:block;margin-top:9px}
 .magazine-audio-progress input{display:block;width:100%;min-height:28px;margin:0;accent-color:#9a6b2b;cursor:pointer}
-.magazine-audio-extra{display:flex;align-items:center;gap:12px;border-top:1px solid #c5a36d66;margin-top:5px;padding-top:10px}
-.magazine-audio-extra button{min-height:34px;padding:6px 10px;border-radius:18px;font-size:11px}
-.magazine-audio-extra label{display:flex;align-items:center;gap:8px;flex:1;min-width:0;font:11px Arial,sans-serif}
-.magazine-audio-extra input{min-width:0;width:100%;accent-color:#9a6b2b;min-height:28px}
+.magazine-audio-extra{display:flex;align-items:center;gap:8px;border-top:1px solid #c5a36d66;margin-top:5px;padding-top:10px}
+.magazine-audio-extra button{min-height:32px;padding:5px 8px;border-radius:16px;font-size:10px}
+.magazine-audio-extra label{display:flex;align-items:center;gap:5px;flex:1;max-width:122px;min-width:0;font:10px Arial,sans-serif}
+.magazine-audio-extra input{flex:1;min-width:0;width:64px;margin:0;accent-color:#9a6b2b;min-height:24px}
+.magazine-audio-download{display:inline-flex;align-items:center;justify-content:center;gap:4px;flex:none;min-height:32px;padding:5px 8px;border:1px solid #c5a36d;border-radius:16px;background:#fff8eb;color:#704622;text-decoration:none;white-space:nowrap;font:10px Arial,sans-serif}
+.magazine-audio-download svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .magazine-audio-status{margin:6px 0 0;font:12px/1.5 Arial,sans-serif;color:#825825}
 .magazine-audio-status:empty{display:none}
 .magazine-audio-sr{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.magazine-audio-panel button:focus-visible,.magazine-audio-panel input:focus-visible{outline:2px solid #805319;outline-offset:3px}
+.magazine-audio-panel button:focus-visible,.magazine-audio-panel input:focus-visible,.magazine-audio-download:focus-visible{outline:2px solid #805319;outline-offset:3px}
 @media(max-width:350px){.magazine-audio-panel{margin-left:8px;margin-right:8px;padding:12px}.magazine-audio-controls{gap:3px}.magazine-audio-timing{font-size:10px}}
